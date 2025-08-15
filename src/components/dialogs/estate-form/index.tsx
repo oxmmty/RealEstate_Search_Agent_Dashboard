@@ -24,19 +24,19 @@ const RealEstateForm: React.FC<DialogContentProps<RealEstateItem, any>> = ({ dat
       </div>
 
       <Link href={data.link} target="_blank">
-        <Title level={2} style={{color: '#1677ff'}}>{data.address}</Title>
+        <Title level={2} style={{color: '#fffffff2'}}>{data.address}</Title>
       </Link>
       <Title level={5}>{data.recommendation}</Title>
       {data.damage_tags.map(tag => (
-        <Tag color="magenta" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
+        <Tag color="#4782da" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
       ))}
       {data.saletype_tags.map(tag => (
-        <Tag color="processing" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
+        <Tag color="#388e3c" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
       ))}
 
       <Divider />
       <Title level={3}>About this home</Title>
-      <Title level={4} style={{marginTop: '5px'}}>Price: $ {data.price}, Beds: {data.beds}, Baths: {data.baths}{data.space != '' ? ', '+data.space : ''}</Title>
+      <Title level={4} style={{marginTop: '5px'}}>Price: $ {data.price}{data.beds ? ', Beds: '+data.beds : ''}{data.baths ? ', Baths: '+data.baths : ''}{data.space != '' ? ', '+data.space : ''}</Title>
       <Title level={5}>{data.description}</Title>
 
       <div style={{display: 'flex', justifyContent: 'end'}}>

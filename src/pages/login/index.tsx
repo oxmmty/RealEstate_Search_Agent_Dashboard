@@ -25,10 +25,10 @@ const LoginForm: FC = () => {
   };
 
   return logged ? <Navigate to="/home" /> : (
-    <div className="login-page" style={{ backgroundColor: 'white' }}>
+    <div className="login-page" style={{ backgroundColor: '#1b2635' }}>
       <Form<LoginParams> onFinish={onFinished} initialValues={initialValues}>
         <img src={logo} style={{ display: 'block', width: '90px', margin: 'auto'}}/>
-        <h2 style={{ textAlign: 'center', marginTop: 0 }}>Welcome!</h2>
+        <h2 style={{ textAlign: 'center', marginTop: 0, color: '#fffffff2' }}>Welcome!</h2>
           <Form.Item
             name="email"
             rules={[

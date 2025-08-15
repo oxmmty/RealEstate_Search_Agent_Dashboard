@@ -19,23 +19,37 @@ const MyCard: React.FC<MyCardProps> = ( { item, onClick } ) => {
   return (
     <Card
       hoverable
-      cover={<img src={item.image_url} />}
+      cover={
+        <div style={{ width: '100%', aspectRatio: '4 / 3', overflow: 'hidden' }}>
+          <img
+            src={item.image_url}
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </div>}
       onClick={handleClick}
       className='h-full'
     >
-      <Title level={5} style={{marginTop: '10px'}}>{item.address}</Title>
-      {item.damage_tags.map(tag => (
-        <Tag color="magenta" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
-      ))}
-      {item.saletype_tags.map(tag => (
-        <Tag color="processing" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
-      ))}
-      <Paragraph
-        ellipsis={{ rows: 3, expandable: false }}
-        style={{ marginTop: 8 }}
-      >
-        {item.description}
-      </Paragraph>
+      <div style={{  padding: '15px 15px'}}>
+        
+        <Title level={5} style={{marginTop: '10px', color: '#fffffff2'}}>{item.address}</Title>
+        {item.damage_tags.map(tag => (
+          <Tag color="#4782da" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
+        ))}
+        {item.saletype_tags.map(tag => (
+          <Tag color="#388e3c" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
+        ))}
+        <Paragraph
+          ellipsis={{ rows: 3, expandable: false }}
+          style={{ marginTop: 8 }}
+        >
+          {item.description}
+        </Paragraph>
+      </div>
     </Card>
   )
 };

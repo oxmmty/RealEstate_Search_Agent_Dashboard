@@ -16,16 +16,36 @@ const CITY_KEYWORDS = [
 ] as const;
 
 const DAMAGE_KEYWORDS = [
-  "storm damage","tree damage","water damage","fire damage","mold","asbestos","abatement",
-  "mitigation","remediation","major repairs needed","repair","tear down","fixer-upper",
-  "TLC","needs updates","renovation","insurance claim",
-] as const;
+  "repair",
+  "fixer-upper",
+  "damage",
+  "insurance claim",
+  "mitigation",
+  "renovate",
+  "restoration",
+  "storm damage",
+  "water damage",
+  "tree damage",
+  "fire damage",
+  "mold",
+  "asbestos",
+  "TLC"
+];
 
 const SALE_TYPE_KEYWORDS = [
-  "as-is","sold as-is","cash only","investor special","flip opportunity","pre-foreclosure",
-  "foreclosure","short sale","REO","probate","tax delinquent","absentee owner","vacant",
-  "code violation","inheritance","divorce","needs TLC","investor special","not FHA eligible",
-] as const;
+  "as-is",
+  "foreclosure",
+  "pre-foreclosure",
+  "short sale",
+  "lien",
+  "tax delinquent",
+  "divorce",
+  "bankruptcy",
+  "probate",
+  "off market",
+  "inheritance",
+  "flip"
+];
 
 const HomePage: FC = () => {
     const dispatch = useDispatch();
@@ -54,49 +74,38 @@ const HomePage: FC = () => {
         <>
             <Row><Col span={24}>
                 <Card>
-                    <div className='filters'>
-                        <div>
-                            City: 
+                    <Row gutter={[10, 10]}>
+                        <Col md={8} xs={24}>
                             <MySelect
-                                mode="multiple"
                                 placeholder="Select the target city"
                                 options={CITY_KEYWORDS.map(key => ({label: key, value: key}))}
                                 value={selectedCities}
+                                title="City"
                                 onChange={val => setSelectedCities(val)}
                             />
-                        </div>
-                        <div>
-                            Damage-related tags:
+                        </Col>
+                        <Col md={8} xs={24}>
                             <MySelect
-                                mode="multiple"
                                 placeholder="Select damage-related"
                                 options={DAMAGE_KEYWORDS.map(key => ({label: key, value: key}))}
                                 value={selectedDamages}
+                                title='Damage-related tags'
                                 onChange={val => setSelectedDamages(val)}
                             />
-                        </div>
-                        <div>
-                            Sale Types:
+                        </Col>
+                        <Col md={8} xs={24}>
                             <MySelect
-                                mode="multiple"
                                 placeholder="Select sale type"
                                 options={SALE_TYPE_KEYWORDS.map(key => ({label: key, value: key}))}
                                 value={selectedSaletypes}
+                                title='Sale Types'
                                 onChange={val => setSelectedSaletypes(val)}
                             />
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 </Card>
             </Col></Row>
-            <div style={{marginTop: '10px', display: 'flex', justifyContent: 'center'}}>
-                <Pagination
-                    showSizeChanger={false}
-                    defaultCurrent={1}
-                    current={current}
-                    total={total}
-                    onChange={handleChange}
-                    pageSize={24}
-                />
+            <div style={{marginTop: '30px'}}>
             </div>
             <Row gutter={[6, 20]}>
                 { data.map(item => (
@@ -109,14 +118,16 @@ const HomePage: FC = () => {
                 ))}
             </Row>
             <div style={{marginTop: '10px', display: 'flex', justifyContent: 'center'}}>
-                <Pagination
-                    showSizeChanger={false}
-                    defaultCurrent={1}
-                    current={current}
-                    total={total}
-                    onChange={handleChange}
-                    pageSize={24}
-                />
+                { total > 0 &&
+                    <Pagination
+                        showSizeChanger={false}
+                        defaultCurrent={1}
+                        current={current}
+                        total={total}
+                        onChange={handleChange}
+                        pageSize={24}
+                    />
+                }
             </div>
             <RealEstateFormDialog onClose={() => {}} title='' ref={createDialogRef} />
         </>

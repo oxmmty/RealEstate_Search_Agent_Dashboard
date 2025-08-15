@@ -32,6 +32,6 @@ const styles = css`
   font-size: 16px;
   line-height: 20px;
   font-family: Inter;
-  color: #545F71;
+  color: #ffffff80;
   height: 76px;
 `;

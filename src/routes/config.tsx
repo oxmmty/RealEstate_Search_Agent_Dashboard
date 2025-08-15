@@ -13,7 +13,7 @@ const WrapperRouteComponent: FC<WrapperRouteProps> = ({ titleId, auth, ...props 
 
   if (titleId) {
     try {
-      document.title = titleId
+      document.title = "Real Estates"
     } catch (err) {}
   }
 

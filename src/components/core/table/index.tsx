@@ -74,7 +74,7 @@ const MyTable = <T extends object = object>(props: MyTableProps<T>) => {
     
     .btn-active{
       font-weight: 400;
-      background-color: #30260B;
+      background-color: #233044;
       color: white;
   
       &:hover {
