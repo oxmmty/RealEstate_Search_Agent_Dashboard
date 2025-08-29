@@ -29,7 +29,7 @@ const DAMAGE_KEYWORDS = [
   "fire damage",
   "mold",
   "asbestos",
-  "TLC"
+  "tlc"
 ];
 
 const SALE_TYPE_KEYWORDS = [
