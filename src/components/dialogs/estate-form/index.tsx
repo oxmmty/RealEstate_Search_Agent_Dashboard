@@ -26,7 +26,7 @@ const RealEstateForm: React.FC<DialogContentProps<RealEstateItem, any>> = ({ dat
       <Link href={data.link} target="_blank">
         <Title level={2} style={{color: '#fffffff2'}}>{data.address}</Title>
       </Link>
-      <Title level={5}>{data.recommendation}</Title>
+      {/* <Title level={5}>{data.recommendation}</Title> */}
       {data.damage_tags.map(tag => (
         <Tag color="#4782da" style={{fontSize: '14px', marginBottom: '5px'}}>{tag}</Tag>
       ))}
@@ -36,7 +36,7 @@ const RealEstateForm: React.FC<DialogContentProps<RealEstateItem, any>> = ({ dat
 
       <Divider />
       <Title level={3}>About this home</Title>
-      <Title level={4} style={{marginTop: '5px'}}>Price: $ {data.price}{data.beds ? ', Beds: '+data.beds : ''}{data.baths ? ', Baths: '+data.baths : ''}{data.space != '' ? ', '+data.space : ''}</Title>
+      <Title level={4} style={{marginTop: '5px'}}>Price: $ {data.price}{data.beds ? ', Beds: '+data.beds : ''}{data.baths ? ', Baths: '+data.baths : ''}{data.space != '' ? ', '+data.space+`${data.space.includes('sqft') ? '' : ' sqft'}` : ''}</Title>
       <Title level={5}>{data.description}</Title>
 
       <div style={{display: 'flex', justifyContent: 'end'}}>

@@ -6,7 +6,8 @@ type EnvironmentType = {
 
 const ENVIRONMENTS: Record<string, EnvironmentType> = {
     development: {
-        SERVER_DOMAIN: 'http://127.0.0.1:3000/'
+        // SERVER_DOMAIN: 'http://127.0.0.1:3000/'
+        SERVER_DOMAIN: 'https://search-ai-agent.vercel.app/'
     },
     staging: {
         SERVER_DOMAIN: 'http://127.0.0.1:3000/'
