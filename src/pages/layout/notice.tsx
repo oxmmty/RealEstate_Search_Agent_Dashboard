@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { getNoticeList } from '@/api/layout.api';
 import { ReactComponent as NoticeSvg } from '@/assets/header/notice.svg';
 import { EventStatus } from '@/interface/layout/notice.interface';
-import { useLocale } from '@/locales';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -20,7 +19,6 @@ const HeaderNoticeComponent: FC = () => {
   const [noticeList, setNoticeList] = useState<Notice[]>([]);
   const [loading, setLoading] = useState(false);
   const { noticeCount } = useSelector(state => state.user);
-  const { formatMessage } = useLocale();
 
   const noticeListFilter = <T extends Notice['type']>(type: T) => {
     return noticeList.filter(notice => notice.type === type) as Notice<T>[];
@@ -45,9 +43,6 @@ const HeaderNoticeComponent: FC = () => {
       <Spin tip="Loading..." indicator={antIcon} spinning={loading}>
         <Tabs defaultActiveKey="1">
           <TabPane
-            tab={`${formatMessage({
-              id: 'app.notice.messages',
-            })}(${noticeListFilter('notification').length})`}
             key="1"
           >
             <List
@@ -65,9 +60,6 @@ const HeaderNoticeComponent: FC = () => {
           </TabPane>
 
           <TabPane
-            tab={`${formatMessage({
-              id: 'app.notice.news',
-            })}(${noticeListFilter('message').length})`}
             key="2"
           >
             <List
@@ -89,9 +81,6 @@ const HeaderNoticeComponent: FC = () => {
             />
           </TabPane>
           <TabPane
-            tab={`${formatMessage({
-              id: 'app.notice.tasks',
-            })}(${noticeListFilter('event').length})`}
             key="3"
           >
             <List
@@ -129,9 +118,6 @@ const HeaderNoticeComponent: FC = () => {
       }}
     >
       <Tooltip
-        title={formatMessage({
-          id: 'gloabal.tips.theme.noticeTooltip',
-        })}
       >
         <Badge count={noticeCount} overflowCount={999}>
           <span className="notice" id="notice-center">

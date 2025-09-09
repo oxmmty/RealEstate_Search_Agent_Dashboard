@@ -32,6 +32,7 @@
   "scripts": {
     "dev": "vite --mode development",
     "staging": "vite --mode staging",
+    "build": "tsc && vite build --mode development",
     "build:stage": "tsc && vite build --mode staging",
     "build:prod": "tsc && vite build --mode production",
     "serve": "vite preview",

@@ -12,8 +12,6 @@ import WrapperRouteComponent from './config';
 import HomePage from '@/pages/home';
 
 
-const NotFound = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/404'));
-
 const routeList: RouteObject[] = [
   {
     path: '/login',
@@ -30,10 +28,6 @@ const routeList: RouteObject[] = [
       {
         path: 'home',
         element: <WrapperRouteComponent element={<HomePage />} titleId="Home" />,
-      },
-      {
-        path: '*',
-        element: <WrapperRouteComponent element={<NotFound />} titleId="Not Found" />,
       },
     ],
   },
